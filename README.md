@@ -24,6 +24,8 @@ The idea is to have these agents act as a collective hive that can invoke docker
 
 __How will this be different from a standard docker daemon? If we can get away with just using the standard docker daemon life would be better.__
 
+__The agent should just be another docker container definition. This might help only have to require the docker remote API on each host, as we could start the agent remotely if we need an agent.__
+
 API
 ---
 The main input into the distribtued control plane is a REST based API. This API virtualizes the collective hive of docker agents and abstracts specifics of where a container is executed away from the caller.
@@ -43,5 +45,4 @@ Policy
 Control plane decisions will be influenced by a policy base. This policy base will determine actions based on events and control messages recieved from control plane agents, container instances, and the API.
 
 This is essentially a rule base and should be "live" in that there is a state associated with it and that state changes over time as additional data is added to the knowledge base. Based on the data, actions may be triggered.
-
 
